@@ -1,37 +1,46 @@
 /* 
-INÍCIO
+    Início
 
-// Definir número de casas para cada peça
-torreCasas = 5
-bispoCasas = 5
-rainhaCasas = 8
+    Definir casasTorre como 5
+    Definir casasBispo como 5
+    Definir casasRainha como 8
 
+    Escrever "Movimento da Torre:"
+    Para i de 1 até casasTorre faça
+        Escrever "Direita"
+    FimPara
 
-// Movimento da Torre (for)
-PARA i DE 1 ATÉ torreCasas FAÇA
-    IMPRIMIR "Direita"
-FIM PARA
+    Escrever "Movimento do Bispo:"
+    Para i de 1 até casasBispo faça
+        Escrever "Cima, Direita"
+    FimPara
 
+    Escrever "Movimento da Rainha:"
+    Para i de 1 até casasRainha faça
+        Escrever "Esquerda"
+    FimPara
 
-// Movimento do Bispo (while)
-i = 1
-ENQUANTO i ≤ bispoCasas FAÇA
-    IMPRIMIR "Cima Direita"
-    i = i + 1
-FIM ENQUANTO
+    Escrever "Movimento do Cavalo:"
+    Definir movimentosParaBaixo como 2
+    Definir movimentosParaEsquerda como 1
 
+    Para movimento de 0 até menor que 1 faça
+        Para j de 0 até menor que movimentosParaBaixo faça
+            Escrever "Baixo -"
+        FimPara
 
-// Movimento da Rainha (do-while)
-i = 1
-REPITA
-    IMPRIMIR "Esquerda"
-    i = i + 1
-ATÉ i > rainhaCasas
+        Para k de 0 até menor que movimentosParaEsquerda faça
+            Escrever "Esquerda"
+        FimPara
 
-FIM
+        Escrever nova linha
+    FimPara
 
+Fim
+
+    
+    
 */
-
 
 #include <stdio.h>
 
@@ -40,7 +49,7 @@ int main() {
     int casasBispo = 5;
     int casasRainha = 8;
 
-    int i; 
+    int i;
 
     // Movimento da TORRE 
     printf("Movimento da Torre:\n");
@@ -50,20 +59,37 @@ int main() {
 
     // Movimento do BISPO 
     printf("\nMovimento do Bispo:\n");
-    i = 1;
-    while (i <= casasBispo) {
+    for (i = 1; i <= casasBispo; i++) {
         printf("Cima, Direita\n");
-        i++;
     }
 
     // Movimento da RAINHA 
     printf("\nMovimento da Rainha:\n");
-    i = 1;
-    do {
+    for (i = 1; i <= casasRainha; i++) {
         printf("Esquerda\n");
-        i++;
-    } while (i <= casasRainha);
+    }
+
+    // Movimento do CAVALO
+    printf("\nMovimento do Cavalo:\n");
+
+    int movimentosParaBaixo = 2;
+    int movimentosParaEsquerda = 1;
+
+    // Loop externo
+    for (int movimento = 0; movimento < 1; movimento++) {
+        // Loop interno 1: duas casas para baixo
+        for (int j = 0; j < movimentosParaBaixo; j++) {
+            printf("Baixo");
+            printf(" - ");
+        }
+
+        // Loop interno 2: uma casa para esquerda
+        for (int k = 0; k < movimentosParaEsquerda; k++) {
+            printf("Esquerda");
+        }
+
+        printf("\n"); 
+    }
 
     return 0;
 }
-
